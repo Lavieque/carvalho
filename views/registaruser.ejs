@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registar utilizador</title>
+</head>
+<style>
+    body{
+        margin: 0;
+        padding: 0;
+        font-family: sans-serif;
+        background: #34495e;
+    }
+    .box{
+        width: 300px;
+        padding: 40px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background: #191919;
+        text-align: center;
+    }
+    .box h1 {
+        color: white;
+        text-transform: uppercase;
+        font-weight: 500;
+    }
+    .box input[type = "text"], .box input[type = "password"], .box input[type = "number"]{
+        border: 0;
+        background: none;
+        display: block;
+        margin:  auto;
+        text-align: center;
+        border: 2px solid #3498db;
+        padding: 14px 10px;
+        width: 200px;
+        outline: none;
+        color: white;
+        border-radius: 24px;
+        transition: 0.25s;
+    }
+    .box input[type = "text"]:focus, .box input[type = "password"]:focus, .box input[type = "number"]:focus{
+        width: 280px;
+        border-color: #f56a6a;
+    }
+    .box input[type = "submit"]{
+        border: 0;
+        background: none;
+        display: block;
+        margin: 20px auto;
+        text-align: center;
+        border: 2px solid #f56a6a;
+        padding: 14px 30px;
+        outline: none;
+        color: white;
+        border-radius: 24px;
+        transition: 0.25s;
+    }
+    .box input[type = "submit"]:hover{
+        background-color: #f56a6a;
+    }
+</style>
+<body>
+    <form class="box" action="/api/user" method="post">
+        <h1>Registar</h1>
+        User: <input type="text" name="nome" id="user" placeholder="Utilizador"> <br>
+        Password: <input type="password" name="password" id="password" placeholder="Palavra passe"> <br>
+        Tipo : <input type="number" name="tipo" id="tipo" placeholder="Tipo utilizador"><br>
+        Número : <input type="number" name="numero" id="numero" placeholder="Número">
+        <input type="submit" value="Guardar" class="primary" />
+     </form> 
+</body>
+</html>

@@ -1,0 +1,332 @@
+<!DOCTYPE HTML>
+<!--
+	Editorial by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Editorial by HTML5 UP</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="../assets/css/main.css" />
+		<script src="sweetalert2.min.js"></script>
+		<link rel="stylesheet" href="sweetalert2.min.css">
+	</head>
+	<style>
+		.data{
+			display: none;
+		}
+		.form-control{
+			margin-top: 10px;
+			padding-bottom: 20px;
+			position: relative;
+		}
+		.form-control i {
+			position: absolute;
+			top: 50px;
+			right: 10px;
+			width: 51%;
+			visibility: hidden;
+		}
+		.form-control small{
+			position: absolute;
+			visibility: hidden;
+			bottom: 0;
+			left: 0;
+		}
+		.form-control.success input {
+			border-color: #2ecc71;
+		}
+		.form-control.error input {
+			border-color: #e74c3c;
+		}
+		.form-control.success i.fa-check-circle{
+			color: #2ecc71;
+			visibility: visible;
+		}
+		.form-control.error i.fa-exclamation-circle{
+			color: #e74c3c;
+			visibility: visible;
+		}
+		.form-control.error small{
+			color: #e74c3c;
+			visibility: visible;
+		}
+	</style>
+	<body class="is-preload">
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Main -->
+					<div id="main">
+						<div class="inner">
+
+							<!-- Header -->
+								<header id="header">
+									<a href="index" class="logo"><strong>Editorial</strong> by HTML5 UP</a>
+									<!--ul class="icons">
+										<li><a href="#" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
+										<li><a href="#" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
+										<li><a href="#" class="icon brands fa-snapchat-ghost"><span class="label">Snapchat</span></a></li>
+										<li><a href="#" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
+										<li><a href="#" class="icon brands fa-medium-m"><span class="label">Medium</span></a></li>
+									</-ul-->
+								</header>
+
+							<!-- Banner -->
+								<section id="banner">
+									<div class="content">
+										
+										<form method="post" action="" id="form">
+											<fieldset width="100%" style="border:none;">
+												<!--legend>Legenda:</!--legend-->
+												<div>
+													
+													<h4>Dados do Equipamento</h4>
+													<hr>
+													<div class="col-12">
+														<label>Equipamento</label>
+														<select  id="equipamento">
+															<option value="">- Equipamento -</option>
+															<option value="1">Máquina</option>
+															<option value="2">Viatura</option>															
+														</select>
+													</div><br>
+													<div class="col-6 col-12-xsmall form-control ">														
+														<label for="nome_marca">Nome/Marca </label><input type="text" name="nome_marca" id="nome_marca" value="" placeholder="Nome" />
+														<i class="fas fa-check-circle"></i>
+														<i class="fas fa-exclamation-circle"></i>
+														<small>Mensagem de erro</small>
+													</div>
+													<div class="col-6 col-12-xsmall form-control ">
+														<label for="numinterno">Número Interno </label><input type="text" name="numinterno" id="numinterno" value="" placeholder="Número Interno" /><br>
+														<i class="fas fa-check-circle"></i>
+														<i class="fas fa-exclamation-circle"></i>
+														<small>Mensagem de erro</small>
+														<label for="matricula">Matricula </label><input type="text" name="matricula" id="matricula" value="" placeholder="Matricula" /><br>
+														<i class="fas fa-check-circle"></i>
+														<i class="fas fa-exclamation-circle"></i>
+														<small>Mensagem de erro</small>	
+																											
+													</div><br>
+													
+														<div class="col-6 col-12-xsmall data form-control" id="2"><label for="quilometros">Quilometros </label><input type="number" name="quilometros" id="quilometros" value="" placeholder="Quilometros" />	<i class="fas fa-check-circle"></i>
+															<i class="fas fa-exclamation-circle"></i>
+															<small>Mensagem de erro</small></div>
+														<div class="col-6 col-12-xsmall data form-control" id="1"><label for="horas">Horas </label><input type="number" name="horas" id="quilometros" value="" placeholder="Horas" />	<i class="fas fa-check-circle"></i>
+															<i class="fas fa-exclamation-circle"></i>
+															<small>Mensagem de erro</small></div>
+														<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" referrerpolicy="no-referrer"></script>
+													<script >
+														$(document).ready(function(){
+															$("#equipamento").on('change', function(){
+																$(".data").hide();
+																$("#" + $(this).val()).fadeIn(700);
+															}).change();
+														})
+													</script>
+													<h4>Dados da Participação</h4>
+													<hr>
+													<div class="col-6 col-12-xsmall form-control">
+														<label for="numparticipacao">Número de Participação </label><input type="number" name="numparticipacao" id="numparticipacao" value="" placeholder="Número de Participação " />	<i class="fas fa-check-circle"></i>
+														<i class="fas fa-exclamation-circle"></i>
+														<small>Mensagem de erro</small><br>
+														<!--label for="dataparticipacao">Data da Participação </!--label><input type="date" name="dataparticipacao" id="dataparticipacao" value=""  /--><br>
+													</div><br>
+													
+													<!-- Break -->
+													<!--div class="col-4 col-12-small">
+														<input type="radio" id="demo-priority-low" name="demo-priority" checked>
+														<label for="demo-priority-low">Low</label>
+													</!--div>
+													<div class="col-4 col-12-small">
+														<input type="radio" id="demo-priority-normal" name="demo-priority">
+														<label for="demo-priority-normal">Normal</label>
+													</div>
+													<div-- class="col-4 col-12-small">
+														<input type="radio" id="demo-priority-high" name="demo-priority">
+														<label for="demo-priority-high">High</label>
+													</div-->
+													<!-- Break -->
+													<!--div class="col-6 col-12-small">
+														<input type="checkbox" id="demo-copy" name="demo-copy">
+														<label for="demo-copy">Email me a copy</label>
+													</!--div>
+													<div-- class="col-6 col-12-small">
+														<input type="checkbox" id="demo-human" name="demo-human" checked>
+														<label for="demo-human">I am a human</label>
+													</div-->
+													<!-- Break -->
+													<div class="col-12 " >
+														<label for="descricao">Descrição da Avaria</label>
+														<textarea name="descricao" id="descricao" placeholder="Descrição" rows="6"></textarea>
+														
+													</div><br>
+													<!-- Break -->
+													<div class="col-12">
+														<ul class="actions">
+															<li><input type="submit" value="Guardar" class="primary"  id="submit"/></li>
+															<li><input type="reset" value="Apagar" /></li>
+														</ul>
+													</div>
+												</div>
+											</fieldset>
+										</form>
+									</div>
+									
+								</section>
+
+								
+
+							
+
+						</div>
+					</div>
+
+				<!-- Sidebar -->
+					<div id="sidebar">
+						<div class="inner">
+
+							<!-- Search -->
+								<section id="search" class="alt">
+									<form method="post" action="#">
+										<input type="text" name="query" id="query" placeholder="Search" />
+									</form>
+								</section>
+
+							<!-- Menu -->
+								<nav id="menu">
+									<header class="major">
+										<h2>Menu</h2>
+									</header>
+									<ul>
+										<li><a href="index">Home</a></li>
+										<li><a href="generic.html">Generic</a></li>
+										<li><a href="elements.html">Elements</a></li>
+										<li>
+											<span class="opener">Participação</span>
+											<ul>
+												<li><a href="participacao">Avaria</a></li>
+												<li><a href="manutencao">Manutenção</a></li>
+												<li><a href="inspecao">Inspeção</a></li>
+												<li><a href="acidente ">Acidente</a></li>
+											</ul>
+										</li>
+										<li><a href="#">Etiam Dolore</a></li>
+										<li><a href="#">Adipiscing</a></li>
+										<li>
+											<span class="opener">Another Submenu</span>
+											<ul>
+												<li><a href="#">Lorem Dolor</a></li>
+												<li><a href="#">Ipsum Adipiscing</a></li>
+												<li><a href="#">Tempus Magna</a></li>
+												<li><a href="#">Feugiat Veroeros</a></li>
+											</ul>
+										</li>
+										<li><a href="#">Maximus Erat</a></li>
+										<li><a href="#">Sapien Mauris</a></li>
+										<li><a href="#">Amet Lacinia</a></li>
+									</ul>
+								</nav>
+
+							<!-- Section -->
+								<!--section>
+									<header class="major">
+										<h2>Ante interdum</h2>
+									</header>
+									<div class="mini-posts">
+										<article>
+											<a href="#" class="image"><img src="images/pic07.jpg" alt="" /></a>
+											<p>Aenean ornare velit lacus, ac varius enim lorem ullamcorper dolore aliquam.</p>
+										</article>
+										<article>
+											<a href="#" class="image"><img src="images/pic08.jpg" alt="" /></a>
+											<p>Aenean ornare velit lacus, ac varius enim lorem ullamcorper dolore aliquam.</p>
+										</article>
+										<article>
+											<a href="#" class="image"><img src="images/pic09.jpg" alt="" /></a>
+											<p>Aenean ornare velit lacus, ac varius enim lorem ullamcorper dolore aliquam.</p>
+										</article>
+									</div>
+									<ul class="actions">
+										<li><a href="#" class="button">More</a></li>
+									</ul>
+								</!--section-->
+
+							<!-- Section -->
+								<section>
+									<header class="major">
+										<h2>Get in touch</h2>
+									</header>
+									<p>Sed varius enim lorem ullamcorper dolore aliquam aenean ornare velit lacus, ac varius enim lorem ullamcorper dolore. Proin sed aliquam facilisis ante interdum. Sed nulla amet lorem feugiat tempus aliquam.</p>
+									<ul class="contact">
+										<li class="icon solid fa-envelope"><a href="#">information@untitled.tld</a></li>
+										<li class="icon solid fa-phone">(000) 000-0000</li>
+										<li class="icon solid fa-home">1234 Somewhere Road #8254<br />
+										Nashville, TN 00000-0000</li>
+									</ul>
+								</section>
+
+							<!-- Footer -->
+								<footer id="footer">
+									<p class="copyright">&copy; Untitled. All rights reserved. Demo Images: <a href="https://unsplash.com">Unsplash</a>. Design: <a href="https://html5up.net">HTML5 UP</a>.</p>
+								</footer>
+
+						</div>
+					</div>
+
+			</div>
+
+		<!-- Scripts -->
+			<scrip src="../assets/js/jquery.min.js"></scrip>
+			<scrip src="../assets/js/browser.min.js"></scrip>
+			<script src="../assets/js/breakpoints.min.js"></script>
+			<script src="../assets/js/util.js"></script>
+			<script src="../assets/js/main.js"></script>
+			<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+			<script>
+				let form = document.querySelector('form')
+				let nome_marca = document.getElementById('nome_marca')
+				let numinterno = document.getElementById('numinterno')
+			
+				function checkInputs(){
+					if(nome_marca.value.trim()===''){
+						onError(nome_marca, "Introduz o nome");
+					}else{
+						onSuccess(nome_marca);
+					}
+				}
+				
+				document.querySelector("button")
+				.addEventListener("click",(event)=>{ 
+					event.preventDefault();
+					checkInputs();
+				});
+				
+				function onSuccess(input){
+					let parent=nome_marca.parentElement;
+						let messageEle=parent.querySelector("small");
+						messageEle.style.visibility="hidden";
+						messageEle.innerText="";
+						parent.classList.remove("error");
+						parent.classList.add("success");
+				}
+				
+				function onError(input, message){
+					let parent=nome_marca.parentElement;
+						let messageEle=parent.querySelector("small");
+						messageEle.style.visibility="visible";
+						messageEle.innerText=message;
+						parent.classList.remove("success");
+						parent.classList.add("error");
+				}
+			
+			
+				
+			</script>
+			
+
+	</body>
+</html>
