@@ -1,0 +1,111 @@
+<!DOCTYPE HTML>
+<!--
+	Editorial by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html lang="en" dir="ltr">
+	<head>
+		<title>Imprimir Lista de Abastecimento</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="../assets/css/main.css" />
+		<script src="https://npmcdn.com/js-alert/dist/jsalert.min.js"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+	</head>
+
+        <style>
+           td{
+               width:10rem;
+           }
+		   
+        </style>
+	<body class="is-preload">
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+ 
+				<!-- Main -->
+					<div id="main">
+						<div >
+
+							<!-- Header -->
+								<header >
+									<a href="index" class="image"><img src="../images/LOGO 2016_pequeno.jpg" alt="" ></a>
+                                    
+									<!--ul class="icons">
+										<li><a href="#" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
+										<li><a href="#" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
+										<li><a href="#" class="icon brands fa-snapchat-ghost"><span class="label">Snapchat</span></a></li>
+										<li><a href="#" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
+										<li><a href="#" class="icon brands fa-medium-m"><span class="label">Medium</span></a></li>
+									</-ul-->
+								</header>
+
+							<!-- Banner -->
+								<section id="banner">
+									
+									<div class="content">
+										<div class="container">
+                                            
+                                            <form  method="POST">
+                                                <table class="table">
+                                                    <thead class="thead-dark">
+                                                        <tr>
+                                                            <th>Estaleiro</th>
+                                                            <th>Marca</th>
+                                                            <th>Matricula</th>
+                                                            <th>Marcação antes</th>
+                                                            <th>Marcação depois</th>
+                                                            <th>Litros abastecidos</th>
+															<th>Data do abastecimento</th>
+															
+                                                            
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+														
+                                                        <%for(var i=0; i<abastecimento.length; i++) {%>
+                                                            <tr>
+                                                                <td><%= abastecimento[i].idlocal_abastecimento %></td>
+                                                                <td><%= abastecimento[i].nome_marca %></td>
+                                                                <td><%= abastecimento[i].matricula %></td>
+                                                                <td><%= abastecimento[i].marcacao_antes %> </td>
+                                                                <td><%= abastecimento[i].marcacao_depois %>  </td>
+                                                                <td><%= abastecimento[i].litros_abastecidos %></td>
+                                                                <td><%= abastecimento[i].data_abastecimento %></td>
+                                                                
+                                                            </tr>
+                                                        <%}%>
+                                                    </tbody>
+                                                </table>
+												
+                                            </form>
+                                        </div>
+									</div>
+									
+									
+								</section>
+
+								
+
+							
+
+						</div>
+					</div>
+
+				
+
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="../assets/js/jquery.min.js"></script>
+			<script src="../assets/js/browser.min.js"></script>
+			<script src="../assets/js/breakpoints.min.js"></script>
+			<script src="../assets/js/util.js"></script>
+			<script src="../assets/js/main.js"></script>
+			
+	</body>
+</html>

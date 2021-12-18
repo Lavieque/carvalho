@@ -1,0 +1,189 @@
+<!DOCTYPE HTML>
+<!--
+	Editorial by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html lang="en" dir="ltr">
+	<head>
+		<title>Lista de Participações de Acidente</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="../assets/css/main.css" />
+		<script src="https://npmcdn.com/js-alert/dist/jsalert.min.js"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+	</head>
+
+        <style>
+           
+        </style>
+	<body class="is-preload">
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+ 
+				<!-- Main -->
+					<div id="main">
+						<div class="inner">
+
+							<!-- Header -->
+								<header id="header">
+									<a href="lista_acidente" class="logo"><strong></strong> Lista de Participações de Acidente</a>
+									<!--ul class="icons">
+										<li><a href="#" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
+										<li><a href="#" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
+										<li><a href="#" class="icon brands fa-snapchat-ghost"><span class="label">Snapchat</span></a></li>
+										<li><a href="#" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
+										<li><a href="#" class="icon brands fa-medium-m"><span class="label">Medium</span></a></li>
+									</-ul-->
+								</header>
+
+							<!-- Banner -->
+								<section id="banner">
+									
+									<div class="content">
+										<div class="container">
+                                            <div class="box-nav-flex-justify-between">
+                                                <a href="participacao_acidente" class="border-shadow">
+                                                    <span class="text-gradient">Introduzir Participação <i class="fas fa-car"></i></span>
+                                                </a>
+                                            </div>
+
+                                            <form  method="POST">
+                                                <table class="table">
+                                                    <thead class="thead-dark">
+                                                        <tr>
+                                                            
+                                                            <th>Marca</th>               
+                                                            <th>Matricula</th>
+                                                            <th>Número Interno</th>
+                                                            <th>Horas</th>
+                                                            <th>Quilometros</th>
+                                                            <th>Data do Acidente</th>
+                                                            <th>Hora do Acidente</th>
+                                                            <th>Descrição</th>
+                                                            <th>Ações</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+														
+													<%for(var i=0; i<participacao_acidente.length; i++) {%>
+                                                        <tr>
+                                                            
+                                                            <td><%= participacao_acidente[i].nome_marca %></td>
+                                                            
+                                                            <td><%= participacao_acidente[i].matricula %></td>
+                                                            <td><%= participacao_acidente[i].nr_interno %></td>
+                                                            <td><%= participacao_acidente[i].horas %></td>
+                                                            <td><%= participacao_acidente[i].quilometros %></td>
+                                                            <td><%= participacao_acidente[i].data_acidente%></td>
+                                                            <td><%= participacao_acidente[i].hora_acidente %></td>
+                                                            <td><%= participacao_acidente[i].descricao %></td>
+                                                            <td>
+																<a href="/atualizar_acidente?id=<%= participacao_acidente[i].idparticipacao_acidente %>" class="btn border-shadow update">
+                                                                <span class="text-gradient"><i class="fas fa-pencil-alt"></i></span>
+                                                            </a>
+															
+                                                            <a href="/apagarAcidente/<%= participacao_acidente[i].idparticipacao_acidente %>" class="btn border-shadow delete"   onClick="confirmDelete('')">
+                                                                <span class="text-gradient"><i class="fas fa-trash-alt"></i></span>
+																
+                                                            </a>
+															<a href="/Iacidente?id=<%= participacao_acidente[i].idparticipacao_acidente %>"  class="btn border-shadow"> <span class="text-gradient"><i class="fas fa-print"></i></span></a>
+															
+                                                        	</td>
+                                                        </tr>
+													<%}%>
+                                                    </tbody>
+                                                </table>
+
+												
+												
+                                            </form>
+                                        </div>
+									</div>
+									
+									
+								</section>
+
+								
+
+							
+
+						</div>
+					</div>
+
+				<!-- Sidebar -->
+				<div id="sidebar">
+					<div class="inner">
+
+						<!-- Menu -->
+							<nav id="menu">
+								<header class="major">
+									<h2>Menu</h2>
+								</header>
+								<ul>
+									<li><a href="index">Home</a></li>
+									<li><a href="abastecimento"> Abastecimento</a></li>
+									<li>
+										<span class="opener">Participação</span>
+										<ul>
+											<li><a href="participacao_avaria">Avaria</a></li>
+											<li><a href="participacao_manutencao">Manutenção</a></li>
+											<li><a href="pedido_inspecao">Inspeção</a></li>
+											<li><a href="participacao_acidente">Acidente</a></li>
+										</ul>
+									</li>
+									<li>
+										<span class="opener">Registo de Equipamento</span>
+										<ul>
+											<li><a href="viatura">Viatura</a></li>
+											<li><a href="maquina">Máquina</a></li>
+										</ul>
+									</li>
+									<li><a href="seguro">Registo de Seguro</a></li>
+									<li><a href="lista_abastecimento">Lista de Abastecimento</a></li>
+									<li><a href="lista_manutencao">Lista de Pedidos de Manutenção</a></li>
+									<li><a href="lista_acidente">Lista de Participações de Acidente</a></li>
+									<li><a href="lista_avaria">Lista de Participações de Avaria</a></li>
+									<li><a href="lista_pedidoInspecao">Lista de Pedidos de Inspeção</a></li>
+									<li><a href="lista_maquina">Lista de Máquinas</a></li>
+									<li><a href="lista_seguro">Lista de Seguro</a></li>
+									<li><a href="lista_viatura">Lista de Viatura</a></li>
+									
+								</ul>
+							</nav>
+
+							
+
+							<!-- Section -->
+							<section>
+									
+								<ul class="contact">
+									<li class="icon solid fa-envelope"><a href="#">geral@ciprianocarvalho.pt</a></li>
+									<li class="icon solid fa-phone">(+351) 231 512 995</li>
+									<li class="icon solid fa-home">Rua dos Olivais 36<br />
+									Anadia, 3780-201</li>
+								</ul>
+							</section>
+
+						<!-- Footer -->
+							<footer id="footer">
+								<p class="copyright">&copy; Untitled. Todos direitos Reservados. </p>
+							</footer>
+
+						</div>
+					</div>
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="../assets/js/jquery.min.js"></script>
+			<script src="../assets/js/browser.min.js"></script>
+			<script src="../assets/js/breakpoints.min.js"></script>
+			<script src="../assets/js/util.js"></script>
+			<script src="../assets/js/main.js"></script>
+			
+
+	</body>
+</html>

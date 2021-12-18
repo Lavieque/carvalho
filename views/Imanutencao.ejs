@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    
+    <title>Imprimir Lista de Pedidos de Manutenção </title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<!--link rel="stylesheet" href="../assets/css/main.css" /-->
+		<script src="https://npmcdn.com/js-alert/dist/jsalert.min.js"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+</head>
+<style>
+    div{
+            font-weight: bold;
+        }
+        .form{
+            margin: auto;
+            border:solid 2px #000;
+            width: fit-content;
+            padding: 0;
+            width: 75%;
+        }
+        .line{            
+            display: flex; 
+            border:solid 2px #000;                       
+        }
+        
+        .title{
+            border-left:solid 2px #000;
+            border-right:solid 2px #000;
+            background-color: #ddd;
+            text-align: center;
+        }
+
+        
+        .formTitle{
+            text-align: center;
+        }
+.info{
+    display: block;
+    /* outline:solid 1px ; */
+    padding: 0 1rem;
+    width: calc(100% - 1.5rem);
+}
+        .info>p{
+            display: grid;
+            margin-bottom: 0.5rem;            
+        }
+    .info>span{
+        display: grid;
+        margin: 0.5rem auto;          
+        /* margin-bottom: 0.5rem;   */
+        /* outline: solid 1px; */
+        grid-template-columns: repeat(4, 1fr);
+        
+    }
+        .info input{
+            border: none;
+            border-bottom: solid 2px;
+            outline: none;
+
+            width: 100px;
+        }
+
+
+        .cell{
+            position: relative;
+            border: solid 2px black;
+            width: 1rem;
+            height: 1rem;
+            display: inline-block;
+        }
+        .cell.selected::before,
+        .cell.selected::after{
+            content: "";
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: calc(50% - 2px);
+            border: none;
+            border-left: solid 2px black;
+        }
+        .cell.selected::before{
+            transform: translateX(50%) rotate(45deg);
+        }
+        .cell.selected::after{
+            transform: rotate(-45deg);
+        }
+</style>
+<body >
+     
+    <div class="form">
+        <div class="line">
+            <img src="../images/LOGO 2016_pequeno.jpg" width="100px" height="100px">                 
+            
+            <div class="title">
+                PARTICIPAÇÃO DE AVARIA / PEDIDO DE
+                MANUTENÇÃO DE EQUIPAMENTO 
+            </div> 
+            
+            <div>
+                <div class="formTitle"> MECÂNICO </div>
+                <div class="info">
+                    <p style="grid-template-columns: 0.25fr 1fr;"> 
+                        <label for=""> ASS. </label> <input type="text"> 
+                    </p> 
+                    <p style="grid-template-columns: 0.25fr 1fr;"> 
+                        <label for=""> Data </label> <input type="text">
+                     </p> 
+                </div>  
+            </div>
+        </div>
+        <div class="line">
+            <div> 
+                <div class="formTitle"> DADOS DO EQUIPAMENTO </div>
+                <div class="info">
+                   <p style="grid-template-columns: 1fr 1fr;"> 
+                        <label for=""> Nº INTERNO </label> <input type="text" value="<%= participacao_manutencao.nr_interno %>">  
+                    </p>
+                   <p style="grid-template-columns: 1fr 1fr;"> 
+                        <label for=""> MARCA </label> <input type="text" value="<%= participacao_manutencao.nome_marca %>"> 
+                    </p>
+                   <p style="grid-template-columns: 1fr 1fr;"> 
+                        <label for=""> MODELO </label> <input type="text" > 
+                    </p>
+                   <p style="grid-template-columns: 1fr 1fr;"> 
+                        <label for=""> MATRICULA </label> <input type="text" value="<%= participacao_manutencao.matricula %>"> 
+                    </p>
+                   <p style="grid-template-columns: 1fr 1fr;"> 
+                        <label for=""> Nº HORAS/ KMS </label> <input type="text" value="<%= participacao_manutencao.horas %> <%= participacao_manutencao.quilometros %>"> 
+                    </p> 
+                </div>
+            </div>
+            <div> 
+                <div class="formTitle"> TIPO DE PARTICIPAÇÃO </div>
+                <div class="info">
+                    <p style="grid-template-columns: 1fr 0.5fr 1fr 2fr;"> 
+                        <label for=""> AVARIA </label> <span class="cell "></span> 
+                        <label for=""> MANOBRADOR </label> <input type="text">
+                    </p>
+                    <p style="grid-template-columns: 1fr 0.5fr 1fr 2fr;"> 
+                        <label for=""> MANUTENÇÃO </label> <span class="cell selected"></span>  
+                    </p>
+                    <p style="grid-template-columns: 1fr 0.5fr 1fr 2fr;"> 
+                        <label for=""> PNEUS </label> <span class="cell"></span>  
+                    </p>
+                    <p style="grid-template-columns: 1fr 0.5fr 1fr 2fr;"> 
+                        <label for=""> INSPEÇÃO </label> <span class="cell"></span> 
+                        <label for=""> OBRA </label> <input type="text">
+                    </p>
+                    <p style="grid-template-columns: 1fr 0.5fr 1fr 2fr;"> 
+                        <label for=""> ACIDENTE </label> <span class="cell "></span> 
+                    </p> 
+                </div>
+            </div>                        
+        </div>
+        <div class="line"> 
+            <div class="title" style="border: none; width:100%;"> DESCRIÇÃO DA PARTICIPAÇÃO </div> 
+        </div>
+        <div class="line" style="height:20rem;"contenteditable="true" ><%= participacao_manutencao.descricao %></div>
+        <!-- <div class="line" style="height:50rem;" ><input  value=""></div> -->
+        <div class="line"> 
+            <div class="title" style="border: none; width:100%;"> 
+                CONCLUSÃO DA PARTICIPAÇÃO DE AVARIA / PEDIDO DE MANUTENÇÃO
+            </div> 
+        </div>
+        <div class="line">
+            <div class="info">
+                <span style="grid-template-columns: 1fr 1fr 1fr; margin: 0.5rem auto; width: fit-content;"> 
+                    <label for=""> Data <input type="text" value=""> </label> 
+                    <b></b>
+                    <label for=""> ASS. <input type="text"> </label> 
+                </span> 
+            </div>
+        </div>
+        <div class="line"> 
+            <div class="title" style="border: none; width:100%;"> 
+                RESPONSÁVEL PELA PARTICIPAÇÃO
+            </div> 
+        </div>
+        <div class="line">
+            <div class="info">
+                <!-- <span style="grid-template-columns: 1fr 1fr 2fr; margin: 0.5rem auto; width: fit-content;">  -->
+                <p style="display: flex; "> 
+                    <label for=""> NOME <input type="text">  </label>
+                    <label for=""> CARGO <input type="text">  </label>
+                    
+                    <label for="">Na sua opinião, houve negligencia durante a utilização do equipamento? </label>
+                    <input type="text" style="width: 40px;"> 
+                </p> 
+                <p style="display: flex; "> 
+                    <label for=""> ASSINATURA <input type="text" style="width: 200px;">  </label>
+                    <label for=""> Data <input type="text">  </label>                    
+                </p> 
+            </div>
+        </div>
+        
+        <div class="line"></div>
+        <div class="line">
+            <b style="text-align: center; margin: 1rem;">
+                O Manobrador deve preencher os campos "Dados do equipamento", "Tipo de participação"e " Descrição da participação" e entregá-la ao
+                Encarregado ou Chefe de equipa. O Encarregado ou Chefe de equipa deve preencher o campo "Responsável pela participação"
+                e entregá-la ao Escritório ou enviá-la para o fax 231 511 636, ou para o e-mail geral@ciprianocarvalho.pt 
+            </b>
+        </div>
+        <div class="line"> 
+            <div class="title" style="border: none; width:100%;"> 
+                ATENÇÃO: Esta participação não é utilizada para comunicar avarias urgentes, nesses casos contactar o Mecânico pelo n.º 916 614 288
+            </div> 
+        </div>      
+    </div>
+
+    <div class="box-nav-flex-justify-between">
+        <a href="/imprimirmanutencao" target="_blank" class="border-shadow">
+            <span class="text-gradient">Imprimir <i class="fas fa-car"></i></span>
+        </a>
+                                                                
+            
+        </a>
+    </div>
+
+</body>
+</html>

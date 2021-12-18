@@ -1,0 +1,326 @@
+<!DOCTYPE HTML>
+<!--
+	Editorial by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html lang="en" dir="ltr">
+	<head>
+		<title>Atualizar Registo de Seguro</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="../assets/css/main.css" />
+		<script src="https://npmcdn.com/js-alert/dist/jsalert.min.js"></script>
+		<script src="sweetalert2.min.js"></script>
+		<link rel="stylesheet" href="sweetalert2.min.css">
+		
+		<style>
+			.data{
+				display: none;
+			}
+			.form-control{
+				margin-top: 10px;
+				padding-bottom: 20px;
+				position: relative;
+			}
+			.form-control i {
+				position: absolute;
+				top: 50px;
+				right: 10px;
+				width: 51%;
+				visibility: hidden;
+			}
+			.form-control small{
+				position: absolute;
+				visibility: hidden;
+				bottom: 0;
+				left: 0;
+			}
+			.form-control.success input {
+				border-color: #2ecc71;
+			}
+			.form-control.error input {
+				border-color: #e74c3c;
+			}
+			.form-control.success i.fa-check-circle{
+				color: #2ecc71;
+				visibility: visible;
+			}
+			.form-control.error i.fa-exclamation-circle{
+				color: #e74c3c;
+				visibility: visible;
+			}
+			.form-control.error small{
+				color: #e74c3c;
+				visibility: visible;
+			}
+		</style>
+
+	</head>
+	<body class="is-preload">
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Main -->
+					<div id="main">
+						<div class="inner">
+							<% if(typeof alert != 'undefined') { %>
+								<% alert.forEach(function(error) { %>
+									<div class="alert alert-warning alert-dismissible fade show" role="alert">
+										<%= error.msg %>
+										<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+										  <span aria-hidden="true">&times;</span>
+										</button>
+									  </div>
+								<% }) %>
+							<% } %>
+
+							<!-- Header -->
+								<header id="header">
+									<a href="index" class="logo"><strong></strong> Atualizar Registo de Seguro</a>
+									<!--ul class="icons">
+										<li><a href="#" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
+										<li><a href="#" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
+										<li><a href="#" class="icon brands fa-snapchat-ghost"><span class="label">Snapchat</span></a></li>
+										<li><a href="#" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
+										<li><a href="#" class="icon brands fa-medium-m"><span class="label">Medium</span></a></li>
+									</-ul-->
+								</header>
+
+							<!-- Banner -->
+								<section id="banner">
+									
+									<div class="content">
+										<form method="POST" action="/guardar">
+											<fieldset width="100%" style="border:none;">
+												<!--legend>Legenda:</!--legend-->
+												<div >
+													<!--div class="col-12">
+														<label>Estaleiro</label>
+														<select name="estaleiro" id="estaleiro">
+															<option value="">- Estaleiro -</option>
+															<option value="1">Grada</option>
+															<option value="2">Mortágua</option>
+															
+														</select>
+													</--div><br-->
+													<h3 class="logo">Registo de Seguro</h3>
+													<hr>
+													<h4>Dados do Equipamento</h4>
+													<hr>
+													<div class="col-12">
+														<label>Equipamento</label>
+														<select name="equipamento" id="equipamento">
+															<option value="">- Equipamento -</option>
+															<option value="1">Máquina</option>
+															<option value="2">Viatura</option>
+															
+														</select>
+													</div><br>
+
+													<div class="col-6 col-12-xsmall">
+														
+														<label for="nome_marca">Nome/Marca </label><input type="text" name="nome_marca" id="nome_marca" value="<%= seguro.nome_marca %>" placeholder="Nome" /><br>
+														<label for="modelo">Modelo </label><input type="text" name="modelo" id="modelo" value="<%= seguro.modelo %>" placeholder="Modelo" /><br>
+                                                        <label for="numinterno">Número Interno </label><input type="text" name="numinterno" id="numinterno" value="<%= seguro.nr_interno %>" placeholder="Número Interno" /><br>
+														<label for="matricula">Matricula </label><input type="text" name="matricula" id="matricula" value="<%= seguro.matricula %>" placeholder="Matricula" /><br>
+                                                       
+														
+													</div><br>
+													
+													
+													<!-- Break -->
+													<h4>Dados do Seguro</h4>
+													<hr>
+													<div class="col-4 col-12-small">
+														<label for="data_validade">Data Validade </label><input type="date" name="data_validade" id="data_validade" value="<%= seguro.data_validade %>" placeholder="Data Validade" /><br>
+														<label for="apolice">Número Apólice </label><input type="text" name="apolice" id="apolice" value="<%= seguro.apolice %>" placeholder="" /><br>
+													</div>
+													
+													
+													<!--div class="col-4 col-12-small">
+														<input type="radio" id="pesado" name="categoria" value="pesado">
+														<label for="pesado">Pesado</label>
+													</!--div-->
+													<!--div class="col-4 col-12-small">
+														<input type="radio" id="reboque" name="categoria" value="reboque">
+														<label for="reboque">Reboque</label>
+													</!--div-->
+													<!-- Break -->
+													<!--div class="col-6 col-12-small">
+														<input type="checkbox" id="demo-copy" name="demo-copy">
+														<label for="demo-copy">Email me a copy</label>
+													</!--div>
+													<div-- class="col-6 col-12-small">
+														<input type="checkbox" id="demo-human" name="demo-human" >
+														<label for="demo-human">I am a human</label>
+													</div-->
+													<!-- Break -->
+													<!--div class="col-12">
+														<textarea name="demo-message" id="demo-message" placeholder="Enter your message" rows="6"></textarea>
+													</!--div-->
+													<!-- Break -->
+													<div class="col-12">
+														<ul class="actions">
+															<li><input type="submit" value="Guardar" class="primary" id="submit"/></li>
+															<li><input type="reset" value="Apagar" id="apagar" /></li>
+														</ul>
+													</div>
+												</div>
+											</fieldset>
+										</form>
+									</div>
+									
+									
+								</section>
+
+								
+
+							
+
+						</div>
+					</div>
+
+				<!-- Sidebar -->
+				<div id="sidebar">
+					<div class="inner">
+
+						<!-- Menu -->
+							<nav id="menu">
+								<header class="major">
+									<h2>Menu</h2>
+								</header>
+								<ul>
+									<li><a href="index">Home</a></li>
+									<li><a href="abastecimento"> Abastecimento</a></li>
+									<li>
+										<span class="opener">Participação</span>
+										<ul>
+											<li><a href="participacao_avaria">Avaria</a></li>
+											<li><a href="participacao_manutencao">Manutenção</a></li>
+											<li><a href="pedido_inspecao">Inspeção</a></li>
+											<li><a href="participacao_acidente">Acidente</a></li>
+										</ul>
+									</li>
+									<li>
+										<span class="opener">Registo de Equipamento</span>
+										<ul>
+											<li><a href="viatura">Viatura</a></li>
+											<li><a href="maquina">Máquina</a></li>
+										</ul>
+									</li>
+									<li><a href="seguro">Registo de Seguro</a></li>
+									<li><a href="lista_abastecimento">Lista de Abastecimento</a></li>
+									<li><a href="lista_manutencao">Lista de Pedidos de Manutenção</a></li>
+									<li><a href="lista_acidente">Lista de Participações de Acidente</a></li>
+									<li><a href="lista_avaria">Lista de Participações de Avaria</a></li>
+									<li><a href="lista_pedidoInspecao">Lista de Pedidos de Inspeção</a></li>
+									<li><a href="lista_maquina">Lista de Máquinas</a></li>
+									<li><a href="lista_seguro">Lista de Seguro</a></li>
+									<li><a href="lista_viatura">Lista de Viatura</a></li>
+									
+								</ul>
+							</nav>
+
+							<!-- Section -->
+								<!--section>
+									<header class="major">
+										<h2>Ante interdum</h2>
+									</header>
+									<div class="mini-posts">
+										<article>
+											<a href="#" class="image"><img src="images/pic07.jpg" alt="" /></a>
+											<p>Aenean ornare velit lacus, ac varius enim lorem ullamcorper dolore aliquam.</p>
+										</article>
+										<article>
+											<a href="#" class="image"><img src="images/pic08.jpg" alt="" /></a>
+											<p>Aenean ornare velit lacus, ac varius enim lorem ullamcorper dolore aliquam.</p>
+										</article>
+										<article>
+											<a href="#" class="image"><img src="images/pic09.jpg" alt="" /></a>
+											<p>Aenean ornare velit lacus, ac varius enim lorem ullamcorper dolore aliquam.</p>
+										</article>
+									</div>
+									<ul class="actions">
+										<li><a href="#" class="button">More</a></li>
+									</ul>
+								</!--section-->
+
+							<!-- Section -->
+							<section>
+									
+								<ul class="contact">
+									<li class="icon solid fa-envelope"><a href="#">geral@ciprianocarvalho.pt</a></li>
+									<li class="icon solid fa-phone">(+351) 231 512 995</li>
+									<li class="icon solid fa-home">Rua dos Olivais 36<br />
+									Anadia, 3780-201</li>
+								</ul>
+							</section>
+
+						<!-- Footer -->
+							<footer id="footer">
+								<p class="copyright">&copy; Untitled. Todos direitos Reservados. </p>
+							</footer>
+
+						</div>
+					</div>
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="../assets/js/jquery.min.js"></script>
+			<script src="../assets/js/browser.min.js"></script>
+			<script src="../assets/js/breakpoints.min.js"></script>
+			<script src="../assets/js/util.js"></script>
+			<script src="../assets/js/main.js"></script>
+			<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+			<script>
+					function dateToEN(data_validade){
+							
+							return data_validade.split('/').reverse().join('-');
+					};
+
+					let form = document.querySelector('form')
+				let nome_marca = document.getElementById('nome_marca')
+				let numinterno = document.getElementById('numinterno')
+			
+				function checkInputs(){
+					if(nome_marca.value.trim()===''){
+						onError(nome_marca, "Introduz o nome");
+					}else{
+						onSuccess(nome_marca);
+					}
+				}
+				
+				document.querySelector("button")
+				.addEventListener("click",(event)=>{ 
+					event.preventDefault();
+					checkInputs();
+				});
+				
+				function onSuccess(input){
+					let parent=nome_marca.parentElement;
+						let messageEle=parent.querySelector("small");
+						messageEle.style.visibility="hidden";
+						messageEle.innerText="";
+						parent.classList.remove("error");
+						parent.classList.add("success");
+				}
+				
+				function onError(input, message){
+					let parent=nome_marca.parentElement;
+						let messageEle=parent.querySelector("small");
+						messageEle.style.visibility="visible";
+						messageEle.innerText=message;
+						parent.classList.remove("success");
+						parent.classList.add("error");
+				}
+
+				
+			</script>
+
+			
+
+	</body>
+</html>
